@@ -1,0 +1,12 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.one {
+  color: black;
+}
+
+.two {
+  color: white;
+}
