@@ -22,16 +22,19 @@ const basic = {
 const module = {
   rules: [
     {
+      test: /\.ico$/,
+      loader: 'file-loader',
+      options: { name: '[name].[ext]' },
+    },
+    {
       test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
       loader: 'file-loader',
-      options: {
-        name: 'img/[name].[ext]',
-      },
+      options: { name: 'img/[name].[ext]' },
     },
     {
       test: /\.s[ac]ss$/,
       use: ExtractTextPlugin.extract({
-        use: ['css-loader', 'sass-loader'],
+        use: ['css-loader', 'postcss-loader', 'sass-loader'],
       }),
     },
     {
