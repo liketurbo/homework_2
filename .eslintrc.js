@@ -6,6 +6,9 @@ module.exports = {
       "no-param-reassign": "off",
       "class-methods-use-this": "off",
       "no-bitwise": "off",
-      "no-plusplus": "off"
+      "no-plusplus": "off",
+      "consistent-return": "off",
+      "no-new": "off",
+      "no-restricted-syntax": "off"
     }
 };

@@ -1,0 +1,31 @@
+{
+    "msgs": [
+      "section .data",
+      "msg db Kill all humans.",
+      "msg db I'm back baby.",
+      "msg db So sober, so weak.",
+      "section .text",
+      "global _start",
+      "_start:",
+      "_end",
+      "mov     rax, 1",
+      "mov     rdi, 31",
+      "up     rdi, 56",
+      "mov     rsi, msg",
+      "mov     rdx, 13",
+      "syscall",
+      "mov    rax, 60",
+      "mov    rdi, 0",
+      "syscall",
+      "echo Hello World!",
+      "int x = 10",
+      "int y = 100",
+      "printf(x + y = %d, x + y)",
+      "return 0",
+      "0 FF",
+      "1 AB",
+      "2 56",
+      "3 AA",
+      "unknown error"
+    ]
+}

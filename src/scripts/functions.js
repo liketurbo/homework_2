@@ -1,5 +1,3 @@
-import { TimelineLite } from 'gsap';
-
 export const getRandomInt = (min, max) => (
   /*
   * getRandomInt(0, 9)
@@ -27,25 +25,3 @@ export const refreshCanvas = (canvas) => {
 //   camera.aspect = (parent.offsetWidth / parent.offsetHeight);
 //   camera.updateProjectionMatrix();
 // };
-
-export const addDisplacement = (element) => {
-  element.style.webkitFilter = 'url(#displacement)';
-  element.style.mozFilter = 'url(#displacement)';
-  element.style.filter = 'url(#displacement)';
-};
-
-export const runDisplacement = () => {
-  const turb = document.querySelector('#displacement feTurbulence');
-  const turbVal = { val: 0.000001 };
-
-  const btTl = new TimelineLite({
-    paused: true,
-    onUpdate() {
-      turb.setAttribute('baseFrequency', `0 ${turbVal.val}`);
-    },
-  });
-  btTl.to(turbVal, 0.2, { val: 0.3 });
-  btTl.to(turbVal, 0.2, { val: 0.000001 });
-
-  btTl.restart();
-};
