@@ -16,21 +16,25 @@ export const resizeElem = (elemId, parentId) => {
   elem.height = parent.offsetHeight;
 };
 
-export const resizeRend = (renderer, camera, parentId) => {
-  const parent = document.querySelector(parentId);
-
-  renderer.setSize(parent.offsetWidth, parent.offsetHeight);
-  camera.aspect = (parent.offsetWidth / parent.offsetHeight);
-  camera.updateProjectionMatrix();
+export const refreshCanvas = (canvas) => {
+  canvas.style.opacity = canvas.style.opacity === '1' ? '0.999' : '1';
 };
 
-export const addEffect = (element, filter) => {
-  element.style.webkitFilter = `url(#${filter})`;
-  element.style.mozFilter = `url(#${filter})`;
-  element.style.filter = `url(#${filter})`;
+// export const resizeRend = (renderer, camera, parentId) => {
+//   const parent = document.querySelector(parentId);
+//
+//   renderer.setSize(parent.offsetWidth, parent.offsetHeight);
+//   camera.aspect = (parent.offsetWidth / parent.offsetHeight);
+//   camera.updateProjectionMatrix();
+// };
+
+export const addDisplacement = (element) => {
+  element.style.webkitFilter = 'url(#displacement)';
+  element.style.mozFilter = 'url(#displacement)';
+  element.style.filter = 'url(#displacement)';
 };
 
-export const runEffect = () => {
+export const runDisplacement = () => {
   const turb = document.querySelector('#displacement feTurbulence');
   const turbVal = { val: 0.000001 };
 

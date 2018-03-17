@@ -1,7 +1,7 @@
-// import { resizeElem, resizeRend } from './functions';
+import { resizeElem } from './functions';
 // import { renderer, camera } from './side-element';
-//
-// // window.addEventListener('resize', () => {
-// //   resizeElem('#canvas', '.container');
-// //   resizeRend(renderer, camera, '.container');
-// // });
+
+window.addEventListener('resize', () => {
+  resizeElem('#canvas', '.container');
+  // resizeRend(renderer, camera, '.container');
+});

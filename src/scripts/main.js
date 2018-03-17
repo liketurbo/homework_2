@@ -1,4 +1,10 @@
-import { addEffect, runEffect, resizeElem } from './functions';
+import {
+  addDisplacement,
+  runDisplacement,
+  resizeElem,
+  getRandomInt,
+  refreshCanvas,
+} from './functions';
 
 // import './side-element';
 import './listeners';
@@ -15,13 +21,20 @@ navigator.mediaDevices.getUserMedia({
 }).catch(err => console.log('error', err));
 
 const canvas = document.querySelector('#canvas');
-
 const ctx = canvas.getContext('2d');
-// addEffect(canvas, 'displacement');
-// setInterval(() => runEffect(), 1000);
+
+addDisplacement(canvas);
+setInterval(() => runDisplacement(), getRandomInt(1000, 10000));
 
 const loop = () => {
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  ctx.globalCompositeOperation = 'multiply';
+  ctx.fillStyle = 'red';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.globalCompositeOperation = 'source-over';
+
+  refreshCanvas(canvas);
   requestAnimationFrame(loop);
 };
 loop();
