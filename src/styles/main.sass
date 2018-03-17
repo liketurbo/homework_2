@@ -1,12 +1,14 @@
 @import './_reset.scss'
-@import './type-writter'
+@import './_variables.sass'
+@import './type-writter.sass'
 
 html, body
   min-height: 100%
 
 body
+  @include white-rabbit
+  @include fluid-type($min_width, $max_width, $min_font, $max_font)
   background-color: rgb(32,32,32)
-
 
 .container
   overflow: hidden

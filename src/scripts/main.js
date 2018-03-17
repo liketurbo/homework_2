@@ -24,8 +24,8 @@ displacementEffect.setEffect(canvas);
 displacementEffect.setEffect(document.querySelector('.container__text'));
 typeWritterEffect.setEffect();
 
-setInterval(() => displacementEffect.runEffect(), getRandomInt(1000, 10000));
-setInterval(() => typeWritterEffect.runEffect(), getRandomInt(1000, 10000));
+setInterval(() => displacementEffect.runEffect(), getRandomInt(1500, 10000));
+setInterval(() => typeWritterEffect.runEffect(), getRandomInt(1500, 10000));
 
 const loop = () => {
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);

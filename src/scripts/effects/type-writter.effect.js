@@ -1,4 +1,5 @@
 import TypeIt from 'typeit';
+import { TimelineLite, TweenLite } from 'gsap';
 
 import dataJSON from '../../data.json';
 import { getRandomInt } from '../functions';
@@ -21,8 +22,14 @@ class TypeWritterEffect {
     return randomArr;
   }
 
-  setOpacity(opacity) {
-    this.text.style.opacity = opacity;
+  makeBlink() {
+    const timelineLite = new TimelineLite();
+    timelineLite.add(TweenLite.to('.container__text', 0.75, { opacity: 1 }));
+    timelineLite.add(TweenLite.to('.container__text', 0.05, { opacity: 0 }));
+    timelineLite.add(TweenLite.to('.container__text', 0.05, { opacity: 1 }));
+    timelineLite.add(TweenLite.to('.container__text', 0.05, { opacity: 0 }));
+    timelineLite.add(TweenLite.to('.container__text', 0.05, { opacity: 1 }));
+    timelineLite.add(TweenLite.to('.container__text', 0.05, { opacity: 0 }));
   }
 
   truncateContent() {
@@ -41,8 +48,7 @@ class TypeWritterEffect {
 
     text.style.width = `${textWrapper.offsetWidth / widthFact}px`;
     text.style.height = `${textWrapper.offsetHeight / heightFact}px`;
-    text.style.fontSize = `${getRandomInt(15, 20)}px`;
-    this.setOpacity(1);
+    text.style.opacity = 1;
   }
 
   setEffect() {
@@ -63,9 +69,7 @@ class TypeWritterEffect {
       cursor: false,
       speed: 1,
       autoStart: true,
-      callback: () => {
-        setTimeout(() => this.setOpacity(0), 1000);
-      },
+      callback: this.makeBlink,
     });
   }
 }
