@@ -2,20 +2,21 @@ import TypeIt from 'typeit';
 import { TimelineLite, TweenLite } from 'gsap';
 
 import dataJSON from '../../data.json';
-import { getRandomInt } from '../functions';
+import CommonFunc from '../common.func';
 
-class TypeWritterEffect {
+class TypeWritterEffect extends CommonFunc {
   constructor(data) {
+    super();
     this.data = data;
   }
 
   generateRandomArr() {
     let randomNumber = 0;
     const randomArr = [];
-    const length = getRandomInt(5, this.data.msgs.length);
+    const length = this.getRandomInt(5, this.data.msgs.length);
 
     for (let i = 0; i < length; i++) {
-      randomNumber = getRandomInt(0, this.data.msgs.length - 1);
+      randomNumber = this.getRandomInt(0, this.data.msgs.length - 1);
       randomArr.push(this.data.msgs[randomNumber]);
     }
 

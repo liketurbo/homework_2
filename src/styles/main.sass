@@ -1,6 +1,5 @@
 @import './_reset.scss'
 @import './_variables.sass'
-@import './type-writter.sass'
 
 html, body
   min-height: 100%
@@ -23,6 +22,34 @@ body
   position: absolute
   background-color: red
   mix-blend-mode: darken
+
+.container__text
+  position: absolute
+  overflow: hidden
+  width: 0
+  height: 0
+  left: 0
+  top: 0
+
+  box-sizing: border-box
+  padding: 20px
+
+  font-size: 15px
+  color: white
+  font-weight: bold
+
+  user-select: none
+  cursor: default
+  text-transform: uppercase
+
+.container__audio
+  overflow: hidden
+  position: absolute
+  left: 0
+  bottom: 0
+
+  width: 0
+  height: 0
 
 svg
   position: absolute

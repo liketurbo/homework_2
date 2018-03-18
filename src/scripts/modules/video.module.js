@@ -1,8 +1,8 @@
-import BaseModule from './base.module';
+import CommonFunc from '../common.func';
 import displacementEffect from '../effects/displacement.effect';
 import typeWritterEffect from '../effects/type-writter.effect';
 
-class VideoModule extends BaseModule {
+class VideoModule extends CommonFunc {
   constructor() {
     super();
     this.canvas = document.querySelector('.container__canvas');
@@ -13,6 +13,7 @@ class VideoModule extends BaseModule {
   setUpEffects() {
     this.effects[0].setEffect(this.canvas);
     this.effects[0].setEffect(document.querySelector('.container__text'));
+    this.effects[0].setEffect(document.querySelector('.container__audio canvas'));
     this.effects[1].setEffect();
 
     setInterval(() => this.effects[0].runEffect(), this.getRandomInt(1500, 10000));
@@ -21,6 +22,18 @@ class VideoModule extends BaseModule {
 
   setUpSource(video) {
     this.video = video;
+  }
+
+  setUpSize() {
+    const parent = document.querySelector('.container');
+    this.canvas.width = parent.offsetWidth;
+    this.canvas.height = parent.offsetHeight;
+  }
+
+  setUpSizeListener() {
+    window.addEventListener('resize', () => {
+      this.setUpSize();
+    });
   }
 
   refreshCanvas() {
